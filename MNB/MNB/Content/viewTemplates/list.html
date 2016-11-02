@@ -1,0 +1,48 @@
+﻿<h1>Stock</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Summary</th>
+        <th>Weight</th>
+        <th>Added</th>
+        <th>Withdrawn</th>
+    </tr>
+    <tbody>
+        <tr ng-repeat="element in parts">
+            <td>{{element.Name}}</td>
+            <td>{{element.Price}} Ft</td>
+            <td>{{element.Summary}}</td>
+            <td>{{element.Weight}}</td>
+            <td>{{element.Added}}</td>
+            <td>{{element.Withdrawn}}</td>
+            <td>
+                <button ng-click="add(element)">+</button></td>
+            <td>
+                <button ng-click="withdraw(element)">-</button></td>
+            <td>
+                <button ng-click="startEdit(element)">Edit</button>
+            </td>
+            <td>
+                <button ng-click="delete(element)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div ng-if="underEdit">
+    <form name="editFrom"
+        ng-submit="sendModify()"
+        novalidate>
+        <lalbel>Name</label>
+        <input type="text" name="name" ng-model="elementUnderEdit.Name" ng-required="true"></input>
+        <input type="text" name="price" ng-model="elementUnderEdit.Price" ng-required="true"></input>
+        <input type="text" name="summary" ng-model="elementUnderEdit.Summary"></input>
+        <input type="text" name="weight" ng-model="elementUnderEdit.Weight" ng-required="true"></input>
+
+        <button type="submit" ng-disabled="editFrom.$invalid">Submit</button>
+    </form>
+</div>
+
+<div ng-controller="StatisticsController" ng-include="'/Content/viewTemplates/statistics.html'">
+</div>

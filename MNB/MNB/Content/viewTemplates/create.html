@@ -1,0 +1,16 @@
+﻿<h1>Create</h1>
+<form name="createForm"
+    ng-submit="create()"
+    novalidate>
+    <lalbel>Name</label>
+    <input type="text" name="name" placeholder="Name" ng-model="part.Name" ng-required="true"></input>
+        <p ng-show="createForm.name.$invalid && createForm.name.$touched">Name is required</p>
+        <input type="text" name="price" placeholder="Price" ng-model="part.Price" ng-required="true"></input>
+        <p ng-show="createForm.price.$invalid && createForm.price.$touched">Price is required</p>
+        <input type="text" name="summary" placeholder="Summary" ng-model="part.Summary"></input>
+        <input type="text" name="weight" placeholder="Weight" ng-model="part.Weight" ng-required="true"></input>
+        <p ng-show="createForm.weight.$invalid && createForm.weight.$touched">Weight is required</p>
+
+        <button type="submit" ng-disabled="createForm.$invalid">Create</button>
+</form>
+
